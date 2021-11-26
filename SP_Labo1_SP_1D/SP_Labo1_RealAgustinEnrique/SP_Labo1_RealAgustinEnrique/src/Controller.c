@@ -417,7 +417,7 @@ int controller_ListPerritoConRacion(LinkedList* pArrayListPerrito)
 	printf("\n");
 	return retorno;
 }
-/*int controller_saveAsText(char* path , LinkedList* pArrayListPerrito)
+int controller_saveAsText(char* path , LinkedList* pArrayListPerrito)
 {
 	int retorno=-1;
 	int id;
@@ -426,6 +426,7 @@ int controller_ListPerritoConRacion(LinkedList* pArrayListPerrito)
 	char raza[31];
 	char sexo[10];
 	    float peso;
+	    float cantidadComidaRacion;
 	sPerrito* pPerrito;
 	int largo=ll_len(pArrayListPerrito);
 
@@ -440,21 +441,22 @@ int controller_ListPerritoConRacion(LinkedList* pArrayListPerrito)
 		{
 			pPerrito=(sPerrito*)ll_get(pArrayListPerrito, i);
 
-			Perrito_getId(pPerrito, &id); //Obtengo el Id del empleado
-			Perrito_getNombre(pPerrito, nombre); //Obtengo el nombre del empleado
-			Perrito_getEdad(pPerrito, &edad); //Obtengo las horas trabajadas del empelado
-			Perrito_getRaza(pPerrito, raza); //Obtengo el sueldo del empleado
-			Perrito_getSexo(pPerrito, sexo);
-			Perrito_getPeso(pPerrito, &peso);
 
-			fprintf(pFile, "%d,%s,%d,%s,%.2f,%s\n", id, nombre, edad, raza, peso, sexo);
+			Perrito_getId(pPerrito, &id); //Obtengo el Id del empleado
+			    Perrito_getNombre(pPerrito, nombre); //Obtengo el nombre del empleado
+			    Perrito_getEdad(pPerrito, &edad); //Obtengo las horas trabajadas del empelado
+			    Perrito_getRaza(pPerrito, raza); //Obtengo el sueldo del empleado
+			    Perrito_getPeso(pPerrito, &peso);
+			    Perrito_getcantidadComidaRacion(pPerrito, &cantidadComidaRacion);
+
+			    printf("%d %15s %15.2f %15d %15s %15.2f\n", id, nombre, peso, edad, raza, cantidadComidaRacion);
 
 		}
 		retorno=1;
 	}
 	fclose(pFile);
     return retorno;
-}*/
+}
 int controller_saveAsBinary(char* path , LinkedList* pArrayListPerrito)
 {
 	printf("Guardando... archivo binario\n");

@@ -78,8 +78,9 @@ int main()
             case 3:
             	if(ll_len(listaPerritos)!=0)
             	{
-            		printf("Se estan calculando y asignando los valores de la comida\n");
             		pFuncionMapeo=Perrito_laQueMapea;
+            		listaMapeada=ll_map(listaPerritos, pFuncionMapeo);
+            		printf("Se estan calculando y asignando los valores de la comida\n");
             	}
             	else
             	{
@@ -88,10 +89,9 @@ int main()
             	option=0;
             	break;
             case 4:
-            	if(ll_len(listaPerritos)!=0)
+            	if(ll_len(listaMapeada)!=0)
             	{
-            		listaMapeada=ll_map(listaPerritos, pFuncionMapeo);
-            		controller_ListPerritoConRacion(listaPerritos);
+            		controller_ListPerritoConRacion(listaMapeada);
             	}
             	else
             	{
@@ -100,10 +100,11 @@ int main()
             	option=0;
             	break;
             case 5:
-            	if(ll_len(listaPerritos)!=0)
+            	if(ll_len(listaMapeada)!=0)
             	{
             		printf("Se esta filtarndo por Galgo\n");
-            		LinkedList* Galgos=ll_filter(listaPerritos, ePerrito_laQueFiltra);
+            		LinkedList* Galgos=ll_filter(listaMapeada, ePerrito_laQueFiltra);
+            		controller_ListPerritoConRacion(Galgos);
             	}
             	else
             	{
@@ -114,8 +115,7 @@ int main()
             case 6:
             	if(ll_len(listaPerritos)!=0)
             	{
-            		guardarComoTexto("galgosFlaquitos.csv", listaPerritosGalgo);
-            		controller_ListPerritoConRacion(listaPerritosGalgo);
+            		controller_saveAsText("galgosFlaquitos.csv", listaPerritosGalgo);
             	}
             	else
             	{

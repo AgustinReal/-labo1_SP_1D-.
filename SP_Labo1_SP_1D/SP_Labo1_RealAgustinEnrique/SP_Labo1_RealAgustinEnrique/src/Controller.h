@@ -88,7 +88,7 @@ int controller_sortPerrito(LinkedList* pArrayListPerrito);
  *
  * @return Esta funcion retorna: 1 o -1: 1 si la funcion se pudo relaizar o -1 si la funcion no se lo logro realizar.
  */
-//int controller_saveAsText(char* path , LinkedList* pArrayListPerrito);
+int controller_saveAsText(char* path , LinkedList* pArrayListPerrito);
 /**
  * @fn int controller_saveAsText(char*, LinkedList*)
  * @brief Esta funcion Guarda los datos de los empleados en el archivo dataBinaria.bin (modo binario).

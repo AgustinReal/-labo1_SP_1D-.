@@ -503,7 +503,7 @@ int ePerrito_laQueFiltra(void* this)
 			Perrito_getRaza((sPerrito*)this , auxRaza);
 			sPerrito* auxPerrito=NULL;
 			auxPerrito=(sPerrito*) this;
-			if(!stricmp(auxRaza, "Galgo") && auxPerrito->edad>=10)
+			if(!stricmp(auxRaza, "Galgo") && auxPerrito->edad>=10 && auxPerrito->cantidadComidaRacion<200)
 			{
 				retorno=1;
 			}
